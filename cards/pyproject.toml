@@ -1,0 +1,26 @@
+[project]
+name = "cards"
+version = "0.1.0"
+description = "A Pythonic Card Deck"
+authors = [
+    { name = "KaranLMungra", email = "klmungra23@gmail.com" }
+]
+dependencies = [
+    "colorama==0.4.6",
+]
+readme = "README.md"
+requires-python = ">= 3.7"
+
+[project.scripts]
+main = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev_dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
