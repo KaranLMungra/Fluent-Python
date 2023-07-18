@@ -1,4 +1,6 @@
+
 ## Special Methods
+
 - There are also called **Dunder Methods** because they start with two underscores.
 - These special method leverages the Python Data Model.
 - Library implements the special method and is called by the special syntax attributed with it by the user of the library.
@@ -30,6 +32,20 @@ if __name__ == '__main__':
 	weird_numbers = WeirdNumbers(25)
 	assert len(weird_numbers) == 24
 ```
+
 - As you can see in the above example, we didn't use the special method `__len__` even in implementation but leverage the use of Python data model.
 - It is usually better to call built-in functions corresponding to special methods. As they often provide other services and are faster on built-in types.
 - Avoid creating arbitrary, custom attributes `__foo__` syntax because such names may acquire special meaning in the future.
+
+## Some Dunder Methods
+
+- `__len__`: As name suggest used for length of a collection or an object. It is used by the syntax `len(someCollection)`.
+- `__getitem__`: It is used for getting a value at an index from a collection. It is used by the syntax `someCollection[2]`.
+- `__repr__`: It is called by the repr built-in to get the string representation of the object for inspection. If we don't implement it the console representation would be something like `<Vector object at 0x10e100070>`. It is important because it shows the exact representation of the object instead of formatted output. It is what used by the debugger and such for outputting the evaluated expression. Whereas, ` __str__` method is used by the print method to show the formatted output. It is a good practice to implement repr such that the output representation resembles the code like `Vector(3, 4)` calling a constructor for the `Vector` class. If you only implement one of these special methods, choose __repr__, because when no custom __str__ is available, Python will call __repr__ as a fallback.
+- `__add__`: It is used by the addition operator (`+`).
+- `__mul__`: It is used by the multiplication operator (`*`). Both the **add** and **mul** dunder methods are commutative, meaning the order of their arguments doesn't matter.
+- `__bool__`: It is used to get the Boolean value of an object. In the case of collections, if the **bool** dunder method is not implemented than interpreter will call the **len** dunder method, if it is zero then it will be considered as **falsy** else **truthy**.
+
+## Conclusion
+
+- Hence, in the conclusion the first chapter shows various dunder methods and how using then can leverage the Python Data model. It makes user-defined type look and feel as same as the built-in types. Hence giving the same API for both built-in and user-defined types. Being a python programmers mean to use this dunder methods properly according to one needs.
