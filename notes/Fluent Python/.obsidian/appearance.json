@@ -1,3 +1,5 @@
 {
-  "accentColor": ""
+  "accentColor": "#6befd9",
+  "textFontFamily": "FiraCode Nerd Font",
+  "translucency": true
 }
